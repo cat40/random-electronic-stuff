@@ -1,4 +1,12 @@
-# Electrical Debugging Tips
+# Electrical Debugging
+
+## General Procedure
+1. Identify the problem. What is the thing doing that's it's not supposed to be doing, or what is it not doing that it's supposed to be doing?
+1. Remove any safety hazards. If the printer is on fire, it's usually best to put it out before proceeding further.
+    1. Pay careful attention to mains voltage. You should not debug your printer with the mains power connected. Unplug, then debug.
+1. Reproduce the problem, if safe to do so. Try to come up with a minimal system where the problem still occurs. In other words, remove variables.
+
+## Electrical Debugging Tips
 In no particular order, though ones closer to the top tend to be more important in my eyes
 
 * RTFD. Read the datasheet. Then read it again.
@@ -10,3 +18,7 @@ In no particular order, though ones closer to the top tend to be more important 
 * Testing should be repeatable. If you get a strange result, check again, and keep checking until your result is mostly consistent. If it never gets consistent, consider measuring/testing something else.
     - Your eyes can lie to you. Even if it looks connected, measure it to be sure. Visual inspection is good for FOD (Foreign Object Debris) and totally miswired stuff but not much beyond that.
     - Your instruments can lie to you. When you see something you don't expect, check the measurement first if it's easy to do so (this one is a little subjective and dependent on circumstances)
+        - Make sure you are using your instrument right. The probes go on the wires, not up your nose, and that sort of thing, y'know?
+    - Check the test and make sure it's inducing the right conditions and measuring the right data. Don't eat the cookies to check if the brownies are done.
+
+
