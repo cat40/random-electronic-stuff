@@ -29,7 +29,7 @@ This is about 64% of the heater mat's power. However, while we could just set th
 
 RMS stands for Root Mean Square and is essentially a fancy pile of math that gets you the equivilent DC voltage or current of a periodic waveform, like the PWM signal sent by the mainboard to switch the heater. You can think of this as sort of the conceptual average of the wave<sup>2</sup>, though it is not the mathematical average.
 
-Long story short, the RMS voltage calculation for a square wave with a given duty cycle is $A_{max}\cdot\sqrt(duty_cycle)$ , where the duty cycle is expressed as a decimal between 0 and 1, and $A_{max}$ is the maximum amplitude of the square wave (in other words, the "high" value, when we set the low value to 0). Because we we are looking at current, we can redefine $A_{max}$ as $I_{max}$ , and because $P=IV$ we can conclude $I_{max}=P/V$ . Based on this, we can do some mathy stuff to determine the maximum duty cycle we can set without overloading the relay:
+Long story short, the RMS voltage calculation for a square wave with a given duty cycle is $A_{peak}\cdot\sqrt(duty_cycle)$ , where the duty cycle is expressed as a decimal between 0 and 1, and $A_{peak}$ is the maximum amplitude of the square wave (in other words, the "high" value, when we set the low value to 0). Because we we are looking at current, we can redefine $A_{peak}$ as $I_{peak}$ , and because $P=IV$ we can conclude $I_{peak}=P/V$ . Based on this, we can do some mathy stuff to determine the maximum duty cycle we can set without overloading the relay:
 
 ```math
 I_{rms}=I_{peak}\cdot\sqrt(duty_cycle)
@@ -43,23 +43,6 @@ Now with example numbers, for a 4A rated relay, 750W bed, and 120V mains
 I_{rms}=4
 I_{peak}=\frac{750W}{120V}=6.25A
 4A=6.25A\cdot\sqrt(duty_cycle)
-
-```
-
-# wrong wrong wrong wrong, wrong wrong wrong wrong
-```math
-P=I\cdot V_{rms}
-V_{rms}=V_{mains}\cdot\sqrt(duty_cycle)
-P=I\cdot V_{mains}\cdot\sqrt(duty_cycle)
-\frac{P}{I\cdot V_{mains}}=\sqrt(duty_cycle)
-(\frac{P}{I\cdot V_{mains}})^2=duty_cycle
-```
-
-And now with example numbers, for 120V and a 4A relay:
-
-```math
-(\frac{480W}{4A\cdot 120V})^2=duty_cycle
-duty_cycle=
 
 ```
 
