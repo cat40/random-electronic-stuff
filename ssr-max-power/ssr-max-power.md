@@ -63,6 +63,9 @@ I_{peak}=\frac{750W}{120V}=6.25A
 ```math
 duty\_cycle=(\frac{4A}{6.25A})^2
 ```
+```math
+duty\_cycle=0.4096
+```
 
 ## Footnotes
 <sup>1</sup> It is important to remember that the SSR is not dissipating this power. This calculation is the maximum power of the load that the SSR switches.
