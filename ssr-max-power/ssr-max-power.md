@@ -32,7 +32,7 @@ P=4A\cdot 120V
 ```math
 P=480W
 ```
-This is about 64% of the heater mat's power. However, while we could just set the maximum duty cycle in the Klipper config to 0.64, we can actually get a bit more power though the magic of RMS.
+Now we know the maximum switchable power, we can calculate the maximum duty cycle we can run the SSR at. Unfortunatly, this is not as simple as it seems. Because the relay heating is basically only dependent on the current, we have to use RMS current to compute the maximum duty cycle, instead of just taking the average power based on duty cyle. 
 
 RMS stands for Root Mean Square and is essentially a fancy pile of math that gets you the equivilent DC voltage or current of a periodic waveform, like the PWM signal sent by the mainboard to switch the heater. You can think of this as sort of the conceptual average of the wave<sup>2</sup>, though it is not the mathematical average.
 
