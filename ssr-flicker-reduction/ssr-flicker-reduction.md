@@ -36,4 +36,13 @@ Sorry, you have to read the whole thing this time, to understand what you are ge
 ## footnotes
 <sup>1</sup> In smart systems with a voltage regulator you will usually see an undershoot when the load is switched on and an overshoot when the load is switched off
 
-<sup>2</sup> todo write a bit about lowering resolution causing problems
+<sup>2</sup> The SSRs we use only switch at zero crossings which means, for 50Hz, you get an opportunity to switch every 10ms. I've drawn a diagram that attempts to show all of this. The zero crossings are highlighted with red lines to sort of line up with the rest of the diagram. The graph above the sine wave is a representation of different PWM duty cycles when the cycle time is the mains period, and the graph below shows different pwm duty cycles when the period is 5 times the mains period.
+
+***todo add graph***
+
+If the cycle_time is left at the default 100ms, it means the relay can switch at 10 different points of the pwm cycle, giving the PID controller up to 11 options for power intensity during that cycle. This seems to be sufficient resolution, though I have heard of people increasing the cycle time to increase steady-state stability.
+Image
+As the cycle time shortens, the number of power intensity options available to the PID controller decreases, and past a certain point there isn't sufficient resolution for the loop to remain stable (the change in resolution is also why you should re-tune the PID controller after adjusting the cycle time for any reason). It seems that running at the mains frequency is too fast. It gives two switching points per period which only allows intensities of 0, 50, and 100%. I suspect it will get harder and harder to retain stable control the shorter the period and there will be a limit somewhere, but I haven't tested that
+
+Note that this doesn't actually have anything to do with being exactly the mains frequency, it doesn't matter if the pwm frequency is a harmonic of the mains frequency or not, just that it is similar in magnitude, for the problem to occur. Likewise I'm not convinced that the phenomenon where setting the cycle_time to or near the mains period seems to remove flickering is actually related to harmonics or even electrical at all, it could just be that 50/60Hz is, for some people, above the frequency where they can observe flickering.
+
