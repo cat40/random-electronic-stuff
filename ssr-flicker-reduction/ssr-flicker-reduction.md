@@ -14,7 +14,12 @@ Sorry, you have to read the whole thing this time, to understand what you are ge
 ### Change the bed-heater frequency to 48.9 Hz
 **Note**: All frequencies discussed in this section are relative to a 60Hz mains system. If your mains frequency is 50Hz you will probably experience similar results adjusting the numbers proportionally, however, this has not been tested.
 
-### Change to better light bulbs
+#### Why you should not set the PWM frequency to or near your mains frequency
+
+
+### Change to different light bulbs
+* Lower power lightbulbs have been observed to flicker less, with the exception of 40W equivalent GE bulbs
+* GE relax bulbs seem to perform the best of the ones tested, including GE classic, Lowe's store brand, and IKEA.
 
 ### Install an inlet filter
 
