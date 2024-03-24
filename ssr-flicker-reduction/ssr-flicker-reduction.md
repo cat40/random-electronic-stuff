@@ -2,14 +2,14 @@
 
 ## tl;dr
 
-The main way to reduce flicker is to adjust the pwm frequency to 44.9 or 47.9 Hz. Alternatively or additionally, chance your lamps to the ones recommended below. An example adjusted `heater_bed` config section:
+The primary way to reduce flicker is to adjust the PWM frequency to 44.9 or 47.9 Hz on a 60Hz mains grid. Alternatively or additionally, change your lamps to the ones recommended below. An example adjusted `heater_bed` config section is included:
 
 
 
 ## Why flicker happens
 
-* A large load like a 3d printer bed causes a significant disruption to the power supply when it is switched. Usually you will see a voltage drop in a dumb system like mains electrical[^1].
-* If there are lights on the circuit, the voltage drop pulses can cause the light to lower in brightness when the bed is on, and raise in brightness when the bed is off[^2].
+* A mains powered bed heater in a 3d printer bed causes a significant disruption to the power supply when it is switched. Usually you will see a voltage drop in a dumb system like mains electrical[^1] when the SSR is on during PWM.
+* If lights are shared on th esame circuit as the printer, the voltage drop pulses can cause the light to lower in brightness when the bed is on, and raise in brightness when the bed is off[^2].
 
 Here's some actual data:
 
@@ -17,7 +17,7 @@ Here's some actual data:
 
 (image credit Royicus)
 
-Here you can see how the mains voltage near the printer drops when the bed is one.
+Here you can see how the mains voltage near the printer drops when the bed is on.
 
 A lamp was connected and a phototransistor was used to gauge the light output, and as you can see in these captures the output majorly fluctuates at the default 10Hz frequency:
 
@@ -29,7 +29,11 @@ A lamp was connected and a phototransistor was used to gauge the light output, a
 ### Change the bed-heater frequency to 44.9 or 47.9 Hz
 **Note**: All frequencies discussed in this section are relative to a 60Hz mains system. If your mains frequency is 50Hz you will probably experience similar results adjusting the numbers proportionally, however, this has not been tested.
 
-It seems that 44.9 or 48.9 Hz results in a sweet spot between reducing flicker and causing instability during heating (see below). To set this, simply add a line in the `[bed_heater]` section of your Klipper config: `cycle_time = 0.2227` (44.9 Hz) or `cycle_time = 0.020876` (47.9Hz). If you already have a `cycle_time` line simply change the number.
+Math to arrive at the frequencies recommended
+44.9Hz = 60Hz*(3/4)-0.1
+47.9Hz = 60Hz*(4/5)-0.1
+
+It seems that 44.9 or 47.9Hz results in a sweet spot between reducing flicker and causing instability during heating (see below). To set this, simply add a line in the `[bed_heater]` section of your Klipper config: `cycle_time = 0.2227` (44.9 Hz) or `cycle_time = 0.020876` (47.9Hz). If you already have a `cycle_time` line simply change the number.
 
 
 With this frequency applied you can see that the lamp brightness fluctuates far less:
@@ -49,7 +53,7 @@ There is a decent chance you will get heating instability, such as:
 
 (images taken at 60Hz, credit Thor)
 
-The reason for this is the SSR only switches at zero-crossings, and if the switching frequency is close enough to the mains frequency the SSR can wind up getting sort of locked, where it can't control whether the power is fully on or half on, so the heating becomes erratic. You can see the problematic power waveform below;
+The reason for this is the SSR only switches at zero-crossings.  If the switching frequency is close enough to the mains frequency the SSR can wind up getting sort of locked, where it can't control whether the power is fully on or half on, so the heating becomes erratic. You can see the problematic power waveform below;
 
 ![unstable ssr switching](images/ark_60hz_mains.jpg)
 
@@ -58,9 +62,10 @@ The reason for this is the SSR only switches at zero-crossings, and if the switc
 ### Change to different light bulbs
 * Lower power lightbulbs have been observed to flicker less, with the exception of 40W equivalent GE bulbs
 * GE relax bulbs seem to perform the best of the ones tested, including GE classic, Lowe's store brand, and IKEA.
+* Limited bulb models were tested so this list is by no means exhaustive.
 
 ### Install an inlet filter
-* Inlet filters are generally aimed at much higher frequencies that would not be observable to the human eye, and are unlikely to be effective at reducing flicker
+* Inlet filters are generally not recommended to address flicker.  They are aimed at much higher frequencies that would not be observable to the human eye, and therefore unlikely to be effective at reducing flicker
 
 ## Attributions:
 This was a major team effort on the Voron discord, but special recognition should go to:
