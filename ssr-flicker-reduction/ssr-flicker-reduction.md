@@ -6,7 +6,29 @@ Sorry, you have to read the whole thing this time, to understand what you are ge
 ## Why flicker happens
 
 * A large load like a 3d printer bed causes a significant disruption to the power supply when it is switched. Usually you will see a voltage drop in a dumb system like mains electrical<sup>1</sup>.
-* If there are lights on the circuit, the voltage drop pulses can cause the light to lower in brightness when the bed is on, and raise in brightness when the bed is off.
+* If there are lights on the circuit, the voltage drop pulses can cause the light to lower in brightness when the bed is on, and raise in brightness when the bed is off<sup>1</sup>.
+
+# add data/pictures here
+
+## Options for reducing flicker
+### Change the bed-heater frequency to 48.9 Hz
+**Note**: All frequencies discussed in this section are relative to a 60Hz mains system. If your mains frequency is 50Hz you will probably experience similar results adjusting the numbers proportionally, however, this has not been tested.
+
+### Change to better light bulbs
+
+### Install an inlet filter
+
+
+
+
+
+## Footnotes:
+<sup>1</sup> LED and CFL lightbulbs won't behave *quite* that simply, but the end result is still flicker, based on the variation in RMS line voltage
+
+
+
+# old stuff, remove later:
+
 
 ## Common methods of reducing flicker
 
