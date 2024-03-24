@@ -35,11 +35,11 @@ Math to arrive at the frequencies recommended
 
 It seems that 44.9 or 47.9Hz results in a sweet spot between reducing flicker and causing instability during heating (see below). To set this, simply add a line in the `[bed_heater]` section of your Klipper config. If you already have a `pwm_cycle_time` line simply change the number.
 
-<code>pwm_cycle_time: 0.02227 #44.9Hz</code>
+`pwm_cycle_time: 0.02227 #44.9Hz`
 
 or
 
-<code>pwm_cycle_time: 0.02088 #47.9Hz</code>
+`pwm_cycle_time: 0.02088 #47.9Hz`
 
 With this frequency applied you can see that the lamp brightness fluctuates far less and at a higher frequency:
 
