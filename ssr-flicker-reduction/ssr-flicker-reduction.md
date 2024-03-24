@@ -8,12 +8,12 @@ The main way to reduce flicker is to adjust the pwm frequency to 44.9 or 47.9 Hz
 
 ## Why flicker happens
 
-* A large load like a 3d printer bed causes a significant disruption to the power supply when it is switched. Usually you will see a voltage drop in a dumb system like mains electrical<sup>1</sup>.
-* If there are lights on the circuit, the voltage drop pulses can cause the light to lower in brightness when the bed is on, and raise in brightness when the bed is off<sup>2</sup>.
+* A large load like a 3d printer bed causes a significant disruption to the power supply when it is switched. Usually you will see a voltage drop in a dumb system like mains electrical[^1].
+* If there are lights on the circuit, the voltage drop pulses can cause the light to lower in brightness when the bed is on, and raise in brightness when the bed is off[^2].
 
 Here's some actual data:
 
-(sine wave with voltage drop)[images/Phototransistor_capture_LED_Flickering.png]
+![sine wave with voltage drop](images/Phototransistor_capture_LED_Flickering.png)
 
 (image credit Royicus)
 
@@ -26,10 +26,11 @@ A lamp was connected and a phototransistor was used to gauge the light output, a
 (image credit Royicus)
 
 ## Options for reducing flicker
-### Change the bed-heater frequency to 44.9 or 48.9 Hz
+### Change the bed-heater frequency to 44.9 or 47.9 Hz
 **Note**: All frequencies discussed in this section are relative to a 60Hz mains system. If your mains frequency is 50Hz you will probably experience similar results adjusting the numbers proportionally, however, this has not been tested.
 
 It seems that 44.9 or 48.9 Hz results in a sweet spot between reducing flicker and causing instability during heating (see below). To set this, simply add a line in the `[bed_heater]` section of your Klipper config: `cycle_time = 0.2227` (44.9 Hz) or `cycle_time = 0.020876` (47.9Hz). If you already have a `cycle_time` line simply change the number.
+
 
 With this frequency applied you can see that the lamp brightness fluctuates far less:
 
@@ -52,7 +53,7 @@ The reason for this is the SSR only switches at zero-crossings, and if the switc
 
 ![unstable ssr switching](images/ark_60hz_mains.jpg)
 
-(image credit Ark)
+(image credit ark)
 
 ### Change to different light bulbs
 * Lower power lightbulbs have been observed to flicker less, with the exception of 40W equivalent GE bulbs
@@ -64,9 +65,8 @@ The reason for this is the SSR only switches at zero-crossings, and if the switc
 ## Attributions:
 This was a major team effort on the Voron discord, but special recognition should go to:
 * Voron discord user Royicus, for many scope captures and much testing
-* Voron discord user Arc, for coming up with the numbers and some scope captures showing the reasons for instability at mains frequency
+* Voron discord user ark, for coming up with the numbers and some scope captures showing the reasons for instability at mains frequency
 
-## Footnotes:
-<sup>1</sup> In smart systems with a voltage regulator you will usually see an undershoot when the load is switched on and an overshoot when the load is switched off
+[^1]: In smart systems with a voltage regulator you will usually see an undershoot when the load is switched on and an overshoot when the load is switched off
 
-<sup>2</sup> LED and CFL lightbulbs won't behave *quite* that simply, but the end result is still flicker, based on the variation in RMS line voltage
+[^2]: LED and CFL lightbulbs won't behave *quite* that simply, but the end result is still flicker, based on the variation in RMS line voltage
