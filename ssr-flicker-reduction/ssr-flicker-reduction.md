@@ -11,11 +11,17 @@ Sorry, you have to read the whole thing this time, to understand what you are ge
 # add data/pictures here
 
 ## Options for reducing flicker
-### Change the bed-heater frequency to 48.9 Hz
+### Change the bed-heater frequency to 44.9 or 48.9 Hz
 **Note**: All frequencies discussed in this section are relative to a 60Hz mains system. If your mains frequency is 50Hz you will probably experience similar results adjusting the numbers proportionally, however, this has not been tested.
 
-#### Why you should not set the PWM frequency to or near your mains frequency
+It seems that 44.9 or 48.9 Hz results in a sweet spot between reducing flicker and causing instability during heating (see below). To set this, simply add a line in the `[bed_heater]` section of your Klipper config: `cycle_time = 0.2227` (44.9 Hz) or `cycle_time = 0.020449` (48.9Hz). If you already have a `cycle_time` line simply change the number
 
+#### Why you should not set the PWM frequency to or near your mains frequency
+There is a decent chance you will get heating instability, such as:
+
+![unstable bed heating graph](images/thor_instability1.png)
+
+![also an unstable bed heating graph](images/thor_instability2.png)
 
 ### Change to different light bulbs
 * Lower power lightbulbs have been observed to flicker less, with the exception of 40W equivalent GE bulbs
@@ -30,6 +36,11 @@ Sorry, you have to read the whole thing this time, to understand what you are ge
 ## Footnotes:
 <sup>1</sup> LED and CFL lightbulbs won't behave *quite* that simply, but the end result is still flicker, based on the variation in RMS line voltage
 
+## Attributions:
+This was a major team effort on the Voron discord, but special recognition should go to:
+* Voron discord user Royicus, for many scope captures and much testing
+* Voron discord user Arc, for coming up with the numbers and some scope captures showing the reasons for instability at mains frequency
+* Voron discord user Thor, for images
 
 
 # old stuff, remove later:
