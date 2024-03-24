@@ -1,6 +1,7 @@
 # Random electronic stuff
 #### Below is a list of writeups I have done to explain electrical conepts in a hopefully coherent and understandable manner
 
+Please do not go poking around in the branches, many of them are under development and may contain incomplete or incorrect information
 
 ### Low-Side Switching
 An explanation of how low-side switching works. Low-side switching is the most common way of switching electrical devices connected to 3d printer mainboards
