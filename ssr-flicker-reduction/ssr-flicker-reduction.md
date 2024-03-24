@@ -47,7 +47,7 @@ There is a decent chance you will get heating instability, such as:
 
 The reason for this is the SSR only switches at zero-crossings, and if the switching frequency is close enough to the mains frequency the SSR can wind up getting sort of locked, where it can't control whether the power is fully on or half on, so the heating becomes erratic. You can see the problematic power waveform below;
 
-![unstable ssr switching](images/arc_60hz_mains.jpg)
+![unstable ssr switching](images/ark_60hz_mains.jpg)
 
 (image credit Ark)
 
