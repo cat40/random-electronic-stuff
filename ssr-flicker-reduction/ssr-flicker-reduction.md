@@ -5,8 +5,8 @@ Sorry, you have to read the whole thing this time, to understand what you are ge
 
 ## Why flicker happens
 
-* A large load like a 3d printer bed causes a significant disruption to the power supply when it is switched. Usually you will see a voltage drop in a dumb system like mains electrical<sup>1</sup>.
-* If there are lights on the circuit, the voltage drop pulses can cause the light to lower in brightness when the bed is on, and raise in brightness when the bed is off<sup>2</sup>.
+* A large load like a 3d printer bed causes a significant disruption to the power supply when it is switched. Usually you will see a voltage drop in a dumb system like mains electrical[^1].
+* If there are lights on the circuit, the voltage drop pulses can cause the light to lower in brightness when the bed is on, and raise in brightness when the bed is off[^2].
 
 Here's some actual data:
 
@@ -63,7 +63,6 @@ This was a major team effort on the Voron discord, but special recognition shoul
 * Voron discord user Royicus, for many scope captures and much testing
 * Voron discord user Arc, for coming up with the numbers and some scope captures showing the reasons for instability at mains frequency
 
-## Footnotes:
-<sup>1</sup> In smart systems with a voltage regulator you will usually see an undershoot when the load is switched on and an overshoot when the load is switched off
+[^1]: In smart systems with a voltage regulator you will usually see an undershoot when the load is switched on and an overshoot when the load is switched off
 
-<sup>2</sup> LED and CFL lightbulbs won't behave *quite* that simply, but the end result is still flicker, based on the variation in RMS line voltage
+[^2]: LED and CFL lightbulbs won't behave *quite* that simply, but the end result is still flicker, based on the variation in RMS line voltage
