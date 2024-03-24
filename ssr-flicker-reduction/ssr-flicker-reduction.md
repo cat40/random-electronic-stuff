@@ -10,7 +10,7 @@ Sorry, you have to read the whole thing this time, to understand what you are ge
 
 Here's some actual data:
 
-(sine wave with voltage drop)[images/Phototransistor_capture_LED_Flickering.png]
+![sine wave with voltage drop](images/Phototransistor_capture_LED_Flickering.png)
 
 (image credit Royicus)
 
@@ -23,10 +23,10 @@ A lamp was connected and a phototransistor was used to gauge the light output, a
 (image credit Royicus)
 
 ## Options for reducing flicker
-### Change the bed-heater frequency to 44.9 or 48.9 Hz
+### Change the bed-heater frequency to 44.9 or 47.9 Hz
 **Note**: All frequencies discussed in this section are relative to a 60Hz mains system. If your mains frequency is 50Hz you will probably experience similar results adjusting the numbers proportionally, however, this has not been tested.
 
-It seems that 44.9 or 48.9 Hz results in a sweet spot between reducing flicker and causing instability during heating (see below). To set this, simply add a line in the `[bed_heater]` section of your Klipper config: `cycle_time = 0.2227` (44.9 Hz) or `cycle_time = 0.020449` (48.9Hz). If you already have a `cycle_time` line simply change the number.
+It seems that 44.9 or 47.9 Hz results in a sweet spot between reducing flicker and causing instability during heating (see below). To set this, simply add a line in the `[bed_heater]` section of your Klipper config: `cycle_time = 0.2227` (44.9 Hz) or `cycle_time = 0.020449` (47.9Hz). If you already have a `cycle_time` line simply change the number.
 
 With this frequency applied you can see that the lamp brightness fluctuates far less:
 
