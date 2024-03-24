@@ -56,8 +56,7 @@ The reason for this is the SSR only switches at zero-crossings, and if the switc
 * GE relax bulbs seem to perform the best of the ones tested, including GE classic, Lowe's store brand, and IKEA.
 
 ### Install an inlet filter
-
-
+* In some circumstances this may help, but they are generally aimed at much higher frequencies that would not be observable to the human eye
 
 
 
