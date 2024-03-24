@@ -49,7 +49,7 @@ The reason for this is the SSR only switches at zero-crossings, and if the switc
 
 ![unstable ssr switching](images/ark_60hz_mains.jpg)
 
-(image credit Ark)
+(image credit ark)
 
 ### Change to different light bulbs
 * Lower power lightbulbs have been observed to flicker less, with the exception of 40W equivalent GE bulbs
@@ -61,7 +61,7 @@ The reason for this is the SSR only switches at zero-crossings, and if the switc
 ## Attributions:
 This was a major team effort on the Voron discord, but special recognition should go to:
 * Voron discord user Royicus, for many scope captures and much testing
-* Voron discord user Arc, for coming up with the numbers and some scope captures showing the reasons for instability at mains frequency
+* Voron discord user ark, for coming up with the numbers and some scope captures showing the reasons for instability at mains frequency
 
 [^1]: In smart systems with a voltage regulator you will usually see an undershoot when the load is switched on and an overshoot when the load is switched off
 
