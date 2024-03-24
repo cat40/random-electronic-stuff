@@ -62,7 +62,6 @@ The reason for this is the SSR only switches at zero-crossings, and if the switc
 This was a major team effort on the Voron discord, but special recognition should go to:
 * Voron discord user Royicus, for many scope captures and much testing
 * Voron discord user Arc, for coming up with the numbers and some scope captures showing the reasons for instability at mains frequency
-* Voron discord user Thor, for images
 
 ## Footnotes:
 <sup>1</sup> In smart systems with a voltage regulator you will usually see an undershoot when the load is switched on and an overshoot when the load is switched off
