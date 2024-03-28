@@ -47,7 +47,7 @@ With this frequency applied you can see that the lamp brightness fluctuates far 
 
 (image credit royicus)
 
-With both reduced and higher frequency fluctuation, human vision is less likely to detect flicker. Which of those two PWM frequencies works better seems to be variable. You can see more detailed data, credit royicus, (here)[data]
+With both reduced and higher frequency fluctuation, human vision is less likely to detect flicker. Which of those two PWM frequencies works better seems to be variable.
 
 #### Why you should not set the PWM frequency to or near your mains frequency
 There is a decent chance you will get heating instability, such as:
